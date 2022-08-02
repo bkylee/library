@@ -14,8 +14,18 @@ const chair = new book("Chair", "IKEA", 430, "No");
 
 const library = {bible, diet, chair,}
 
-function addBookToLibrary(){
-    library.array.forEach(element => {
-        console.log(element);
+const wrapper = document.getElementById('wrapper');
+
+function showBooks(){
+    library.forEach(element => {
+        const card = document.createElement('div')
+        card.textContent = library.element;
+        wrapper.appendChild(card);
     });
 }
+
+function addBookToLibrary(book){
+    library.push(book);
+    showBooks();
+}
+
