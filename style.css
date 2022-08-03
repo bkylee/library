@@ -1,0 +1,9 @@
+:root{
+    background-color: #FAE8E0;
+    font-family: 'Source Sans Pro', sans-serif;
+    box-sizing: border-box;
+}
+
+#display{
+    display: block;
+}

@@ -7,15 +7,20 @@ function Book (title, author, pages, read){
         return `${title} by ${author}, ${pages} pages, ${read}`;
     }
 }
-const bible = new Book("Bible", "Various", 2500, "Yes");
-const diet = new Book("Diet Book", "Greg", 500, "No");
-const chair = new Book("Chair", "IKEA", 430, "No");
+// const bible = new Book("Bible", "Various", 2500, "Yes");
+// const diet = new Book("Diet Book", "Greg", 500, "No");
+// const chair = new Book("Chair", "IKEA", 430, "No");
 
 
 // DOM element selectors 
 
+//selector to grab button 
 let button = document.querySelector('#submit');
+
+//current library 
 const library = [bible, diet, chair,];
+
+
 
 function showBooks(){
     library.forEach(element => {
