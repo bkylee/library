@@ -16,21 +16,14 @@ const chair = new Book("Chair", "IKEA", 430, "No");
 
 const display = document.getElementById('display');
 const wrapper = document.getElementById('wrapper');
-
-let title = document.getElementById('title');
-let author = document.getElementById('author');
-let pages = document.getElementById('pages');
-let read = document.getElementById('read');
 let button = document.querySelector('#submit');
-
-const library = {bible, diet, chair,}
-
+const library = [bible, diet, chair,];
 let bookCount = 0;
 
 function showBooks(){
     library.forEach(element => {
         const card = document.createElement('div')
-        //need to create the element for hte actual card by adding the text and check box wahtever
+        card.textContent = element;
         wrapper.appendChild(card);
     });
 }
@@ -41,11 +34,23 @@ function addBookToLibrary(book){
 }
 
 function createBook(){
-    bookCount += 1;
+    const display = document.getElementById('display');
+    let title = document.getElementById('title').value;
+    let author = document.getElementById('author').value;
+    let pages = Number(document.getElementById('pages').value);
+    let read = document.getElementById('read').value;
+
     const book = new Book(title,author,pages, read);
     library.push(book);
+    
+    const bookCard = document.createElement('div');
+    bookCard.textContent = book;
+    display.appendChild(bookCard);
 }
 
 button.addEventListener('click', ()=>{
-
+    createBook();
 })
+
+
+// function removeBook(); 
