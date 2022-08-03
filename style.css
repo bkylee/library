@@ -2,8 +2,22 @@
     background-color: #FAE8E0;
     font-family: 'Source Sans Pro', sans-serif;
     box-sizing: border-box;
+    font-size: 18px;
 }
 
 #display{
     display: block;
+}
+
+button {
+    background-color: hotpink;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 1.25rem;
+    padding: 0.5rem;
+}
+
+button:hover{
+    background-color: #D8A7B1;
 }
