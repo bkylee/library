@@ -43,18 +43,18 @@ function createBook(){
     const bookCard = document.createElement('div');
 
     const bTitle = document.createElement('div');
-        bTitle.textContent = title;
+        bTitle.textContent = `Title: ${title}`;
         bookCard.appendChild(bTitle);
     const bAuthor = document.createElement('div');
-        bAuthor.textContent = author;
+        bAuthor.textContent = `Author: ${author}`;
         bookCard.appendChild(bAuthor);
     const bPages = document.createElement('div');
-        bPages.textContent = pages;
+        bPages.textContent = `Pages: ${pages}`;
         bookCard.appendChild(bPages);
     const bRead = document.createElement('div');
-        bRead.textContent = read;
+        bRead.textContent = `Read: ${read}`;
         bookCard.appendChild(bRead);
-        
+
     display.appendChild(bookCard);
 
 }
