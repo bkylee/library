@@ -1,4 +1,4 @@
-function book (title, author, pages, read){
+function Book (title, author, pages, read){
     this.title = title;
     this.author = author;
     this.pages = pages;
@@ -7,19 +7,30 @@ function book (title, author, pages, read){
         return `${title} by ${author}, ${pages} pages, ${read}`;
     }
 }
-const bible = new book("Bible", "Various", 2500, "Yes");
-const diet = new book("Diet Book", "Greg", 500, "No");
-const chair = new book("Chair", "IKEA", 430, "No");
+const bible = new Book("Bible", "Various", 2500, "Yes");
+const diet = new Book("Diet Book", "Greg", 500, "No");
+const chair = new Book("Chair", "IKEA", 430, "No");
 
+
+// DOM element selectors 
+
+const display = document.getElementById('display');
+const wrapper = document.getElementById('wrapper');
+
+let title = document.getElementById('title');
+let author = document.getElementById('author');
+let pages = document.getElementById('pages');
+let read = document.getElementById('read');
+let button = document.querySelector('#submit');
 
 const library = {bible, diet, chair,}
 
-const wrapper = document.getElementById('wrapper');
+let bookCount = 0;
 
 function showBooks(){
     library.forEach(element => {
         const card = document.createElement('div')
-        card.textContent = library.element;
+        //need to create the element for hte actual card by adding the text and check box wahtever
         wrapper.appendChild(card);
     });
 }
@@ -29,3 +40,12 @@ function addBookToLibrary(book){
     showBooks();
 }
 
+function createBook(){
+    bookCount += 1;
+    const book = new Book(title,author,pages, read);
+    library.push(book);
+}
+
+button.addEventListener('click', ()=>{
+
+})
