@@ -14,11 +14,8 @@ const chair = new Book("Chair", "IKEA", 430, "No");
 
 // DOM element selectors 
 
-const display = document.getElementById('display');
-const wrapper = document.getElementById('wrapper');
 let button = document.querySelector('#submit');
 const library = [bible, diet, chair,];
-let bookCount = 0;
 
 function showBooks(){
     library.forEach(element => {
@@ -44,8 +41,22 @@ function createBook(){
     library.push(book);
     
     const bookCard = document.createElement('div');
-    bookCard.textContent = book;
+
+    const bTitle = document.createElement('div');
+        bTitle.textContent = title;
+        bookCard.appendChild(bTitle);
+    const bAuthor = document.createElement('div');
+        bAuthor.textContent = author;
+        bookCard.appendChild(bAuthor);
+    const bPages = document.createElement('div');
+        bPages.textContent = pages;
+        bookCard.appendChild(bPages);
+    const bRead = document.createElement('div');
+        bRead.textContent = read;
+        bookCard.appendChild(bRead);
+        
     display.appendChild(bookCard);
+
 }
 
 button.addEventListener('click', ()=>{
