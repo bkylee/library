@@ -21,3 +21,11 @@ button {
 button:hover{
     background-color: #D8A7B1;
 }
+
+#display{
+    display: block;
+}
+
+#display>div{
+    background-color: #B6E2D3;
+}

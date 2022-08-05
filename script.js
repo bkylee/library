@@ -18,17 +18,7 @@ function Book (title, author, pages, read){
 let button = document.querySelector('#submit');
 
 //current library 
-const library = [bible, diet, chair,];
-
-
-
-function showBooks(){
-    library.forEach(element => {
-        const card = document.createElement('div')
-        card.textContent = element;
-        wrapper.appendChild(card);
-    });
-}
+const library = [];
 
 function addBookToLibrary(book){
     library.push(book);
@@ -61,7 +51,6 @@ function createBook(){
         bookCard.appendChild(bRead);
 
     display.appendChild(bookCard);
-
 }
 
 button.addEventListener('click', ()=>{
