@@ -7,9 +7,6 @@ function Book (title, author, pages, read){
         return `${title} by ${author}, ${pages} pages, ${read}`;
     }
 }
-// const bible = new Book("Bible", "Various", 2500, "Yes");
-// const diet = new Book("Diet Book", "Greg", 500, "No");
-// const chair = new Book("Chair", "IKEA", 430, "No");
 
 
 // DOM element selectors 
@@ -17,8 +14,7 @@ function Book (title, author, pages, read){
 //selector to grab button 
 let button = document.querySelector('#submit');
 
-//current library 
-const library = [];
+let library = []
 
 function addBookToLibrary(book){
     library.push(book);
@@ -36,8 +32,10 @@ function clear(){
     pages.value = '';
 }
 
+
+//function to remove book from library. 
 function removeBook(title){
-    index = library.findIndex(Book, Book.title === title);
+    index = library.findIndex(element, Book.title === title);
     library.slice(index, index + 1);
 }
 
@@ -48,33 +46,42 @@ function createBook(){
     let pages = Number(document.getElementById('pages').value);
     let read = document.getElementById('read').value;
 
+    //add values from text input into object, add object to library
     const book = new Book(title,author,pages, read);
     library.push(book);
     
     const bookCard = document.createElement('div');
 
+    // title of book
     const bTitle = document.createElement('div');
         bTitle.textContent = `Title: ${title}`;
         bookCard.appendChild(bTitle);
+
+        //author
     const bAuthor = document.createElement('div');
         bAuthor.textContent = `Author: ${author}`;
         bookCard.appendChild(bAuthor);
+
+        //number of pages 
     const bPages = document.createElement('div');
         bPages.textContent = `Pages: ${pages}`;
         bookCard.appendChild(bPages);
-    const bRead = document.createElement('div');
+
+//read box
+        const bRead = document.createElement('div');
         bRead.textContent = `Read: ${read}`;
         bookCard.appendChild(bRead);
+
+        //remove button and function
     const remove = document.createElement('button');
     remove.setAttribute("type","button");
     remove.textContent = "Remove";
-    remove.addEventListener('click', removeBook(title));
-    bookCard.appendChild(remove);
+    // remove.addEventListener('click', removeBook(title));
+    // bookCard.appendChild(remove);
 
     display.appendChild(bookCard);
     clear();
 }
-
 
 
 button.addEventListener('click', ()=>{
