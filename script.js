@@ -36,6 +36,11 @@ function clear(){
     pages.value = '';
 }
 
+function removeBook(title){
+    index = library.findIndex(Book, Book.title === title);
+    library.slice(index, index + 1);
+}
+
 function createBook(){
     const display = document.getElementById('display');
     let title = document.getElementById('title').value;
@@ -61,6 +66,7 @@ function createBook(){
         bRead.textContent = `Read: ${read}`;
         bookCard.appendChild(bRead);
     const remove = document.createElement('button');
+    remove.setAttribute("type","button");
     remove.textContent = "Remove";
     remove.addEventListener('click', removeBook(title));
     bookCard.appendChild(remove);
@@ -69,13 +75,7 @@ function createBook(){
     clear();
 }
 
-function removeBook(title){
-    for (i = 0; i < library.length; i++) {
-        if (library[i].title === title){
-            library.slice(library[i],library[i+1]);
-        }
-    }
-}
+
 
 button.addEventListener('click', ()=>{
     createBook();
