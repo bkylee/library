@@ -25,6 +25,17 @@ function addBookToLibrary(book){
     showBooks();
 }
 
+function clear(){
+    let display = document.getElementById('display');
+    display.value = '';
+    let title = document.getElementById('title');
+    title.value = '';
+    let author = document.getElementById('author');
+    author.value = '';
+    let pages = document.getElementById('pages');
+    pages.value = '';
+}
+
 function createBook(){
     const display = document.getElementById('display');
     let title = document.getElementById('title').value;
@@ -51,6 +62,7 @@ function createBook(){
         bookCard.appendChild(bRead);
 
     display.appendChild(bookCard);
+    clear();
 }
 
 button.addEventListener('click', ()=>{
