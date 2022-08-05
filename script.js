@@ -60,8 +60,21 @@ function createBook(){
     const bRead = document.createElement('div');
         bRead.textContent = `Read: ${read}`;
         bookCard.appendChild(bRead);
+    const remove = document.createElement('button');
+    remove.textContent = "Remove";
+    remove.addEventListener('click', removeBook(title));
+    bookCard.appendChild(remove);
+
     display.appendChild(bookCard);
     clear();
+}
+
+function removeBook(title){
+    for (i = 0; i < library.length; i++) {
+        if (library[i].title === title){
+            library.slice(library[i],library[i+1]);
+        }
+    }
 }
 
 button.addEventListener('click', ()=>{
@@ -69,4 +82,3 @@ button.addEventListener('click', ()=>{
 })
 
 
-// function removeBook(); 
