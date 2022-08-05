@@ -60,7 +60,6 @@ function createBook(){
     const bRead = document.createElement('div');
         bRead.textContent = `Read: ${read}`;
         bookCard.appendChild(bRead);
-
     display.appendChild(bookCard);
     clear();
 }
