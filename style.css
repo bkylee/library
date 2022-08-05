@@ -24,6 +24,7 @@ button:hover{
 
 #display{
     display: block;
+    grid-template-columns: repeat(clamp(1rem, 10vw, 2rem));
 }
 
 #display>div{
