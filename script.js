@@ -16,11 +16,6 @@ let button = document.querySelector('#submit');
 
 let library = [];
 
-function addBookToLibrary(book){
-    library.push(book);
-    showBooks();
-}
-
 function clear(){
     let display = document.getElementById('display');
     display.value = '';
@@ -34,10 +29,6 @@ function clear(){
 
 
 //function to remove book from library. 
-function removeBook(title){
-    index = library.findIndex(element, Book.title === title);
-    library.slice(index, index + 1);
-}
 
 function createBook(){
     const display = document.getElementById('display');
@@ -45,7 +36,7 @@ function createBook(){
     let author = document.getElementById('author').value;
     let pages = Number(document.getElementById('pages').value);
     let read = document.getElementById('read').value;
-
+    
     //add values from text input into object, add object to library
     const book = new Book(title,author,pages, read);
     library.push(book);
@@ -55,6 +46,7 @@ function createBook(){
     // title of book
     const bTitle = document.createElement('div');
         bTitle.textContent = `Title: ${title}`;
+        bTitle.setAttribute('class', 'title');
         bookCard.appendChild(bTitle);
 
         //author
@@ -73,10 +65,17 @@ function createBook(){
         bookCard.appendChild(bRead);
 
         //remove button and function
+    function removeBook(title){
+        for (i = 0; i < library.length; i ++){
+            if (library[i].title === title) {
+                library.slice(library[i], library[i+1]);
+            }
+        } 
+    }
     const remove = document.createElement('button');
     remove.setAttribute("type","button");
     remove.textContent = "Remove";
-    //remove.addEventListener('click', removeBook(title));
+    remove.addEventListener('click', removeBook(name));
     bookCard.appendChild(remove);
 
     display.appendChild(bookCard);
@@ -86,6 +85,5 @@ function createBook(){
 
 button.addEventListener('click', ()=>{
     createBook();
-})
-
+});
 
