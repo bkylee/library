@@ -14,7 +14,7 @@ function Book (title, author, pages, read){
 //selector to grab button 
 let button = document.querySelector('#submit');
 
-let library = []
+let library = [];
 
 function addBookToLibrary(book){
     library.push(book);
@@ -76,8 +76,8 @@ function createBook(){
     const remove = document.createElement('button');
     remove.setAttribute("type","button");
     remove.textContent = "Remove";
-    // remove.addEventListener('click', removeBook(title));
-    // bookCard.appendChild(remove);
+    //remove.addEventListener('click', removeBook(title));
+    bookCard.appendChild(remove);
 
     display.appendChild(bookCard);
     clear();
