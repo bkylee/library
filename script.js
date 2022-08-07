@@ -30,6 +30,10 @@ function clear(){
 
 //function to remove book from library. 
 
+function removeBook(number){
+    library.splice(number, 1);
+}
+
 function createBook(){
     const display = document.getElementById('display');
     let title = document.getElementById('title').value;
@@ -41,7 +45,10 @@ function createBook(){
     const book = new Book(title,author,pages, read);
     library.push(book);
     
+    const index = library.length - 1;
+    
     const bookCard = document.createElement('div');
+    bookCard.dataset.arrayIndex = `${index}`;
 
     // title of book
     const bTitle = document.createElement('div');
@@ -65,17 +72,10 @@ function createBook(){
         bookCard.appendChild(bRead);
 
         //remove button and function
-    function removeBook(title){
-        for (i = 0; i < library.length; i ++){
-            if (library[i].title === title) {
-                library.slice(library[i], library[i+1]);
-            }
-        } 
-    }
     const remove = document.createElement('button');
     remove.setAttribute("type","button");
     remove.textContent = "Remove";
-    remove.addEventListener('click', removeBook(name));
+    // remove.addEventListener('click', removeBook(index));
     bookCard.appendChild(remove);
 
     display.appendChild(bookCard);
