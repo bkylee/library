@@ -32,6 +32,8 @@ function clear(){
 
 function removeBook(number){
     library.splice(number, 1);
+    cards = document.querySelectorAll('[data-array-index]');
+    
 }
 
 function createBook(){
