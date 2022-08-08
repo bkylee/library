@@ -32,8 +32,8 @@ function clear(){
 
 function removeBook(number){
     library.splice(number, 1);
-    cards = document.querySelectorAll('[data-array-index]');
-    
+    card = document.querySelector(`[data-array-index = "${number}"]`);
+    card.remove();
 }
 
 function createBook(){
@@ -46,7 +46,8 @@ function createBook(){
     //add values from text input into object, add object to library
     const book = new Book(title,author,pages, read);
     library.push(book);
-    
+
+    //index of card created
     const index = library.length - 1;
     
     const bookCard = document.createElement('div');
@@ -77,7 +78,7 @@ function createBook(){
     const remove = document.createElement('button');
     remove.setAttribute("type","button");
     remove.textContent = "Remove";
-    // remove.addEventListener('click', removeBook(index));
+    remove.addEventListener('click', removeBook(index));
     bookCard.appendChild(remove);
 
     display.appendChild(bookCard);
