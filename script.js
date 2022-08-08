@@ -28,16 +28,12 @@ function clear(){
 }
 
 
-//function to remove book from library. 
-
-function removeBook(number){
-    library.splice(number, 1);
-    card = document.querySelector(`[data-array-index = "${number}"]`);
-    card.remove();
-}
 
 function createBook(){
+    //get the display wrapper
     const display = document.getElementById('display');
+    
+    //get for contents for card 
     let title = document.getElementById('title').value;
     let author = document.getElementById('author').value;
     let pages = Number(document.getElementById('pages').value);
@@ -50,6 +46,7 @@ function createBook(){
     //index of card created
     const index = library.length - 1;
     
+    //create card 
     const bookCard = document.createElement('div');
     bookCard.dataset.arrayIndex = `${index}`;
 
@@ -78,7 +75,14 @@ function createBook(){
     const remove = document.createElement('button');
     remove.setAttribute("type","button");
     remove.textContent = "Remove";
-    remove.addEventListener('click', removeBook(index));
+    remove.addEventListener('click', removeBook());
+    
+    //function to remove book from library. 
+    function removeBook(){
+    library.splice(index, 1);
+    bookCard.remove();
+}
+
     bookCard.appendChild(remove);
 
     display.appendChild(bookCard);
