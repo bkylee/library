@@ -12,7 +12,7 @@ function Book (title, author, pages, read){
 // DOM element selectors 
 
 //selector to grab button 
-let button = document.querySelector('#submit');
+
 
 let library = [];
 
@@ -26,7 +26,6 @@ function clear(){
     let pages = document.getElementById('pages');
     pages.value = '';
 }
-
 
 
 function createBook(){
@@ -48,7 +47,7 @@ function createBook(){
     
     //create card 
     const bookCard = document.createElement('div');
-    bookCard.dataset.arrayIndex = `${index}`;
+    // bookCard.dataset.arrayIndex = `${index}`;
 
     // title of book
     const bTitle = document.createElement('div');
@@ -75,7 +74,7 @@ function createBook(){
     const remove = document.createElement('button');
     remove.setAttribute("type","button");
     remove.textContent = "Remove";
-    remove.addEventListener('click', removeBook());
+    remove.addEventListener('click', ()=> removeBook());
     
     //function to remove book from library. 
     function removeBook(){
@@ -89,8 +88,6 @@ function createBook(){
     clear();
 }
 
-
-button.addEventListener('click', ()=>{
-    createBook();
-});
+let submit = document.querySelector('#submit');
+submit.addEventListener('click', ()=> createBook());
 
